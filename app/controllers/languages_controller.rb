@@ -34,7 +34,7 @@ class LanguagesController < ApplicationController
 
   def destroy
     @language.destroy
-    redirect_to root_path, notice: 'Language was successfully destroyed.'
+    redirect_to languages, notice: 'Language was successfully destroyed.'
   end
 
   private
@@ -44,7 +44,7 @@ class LanguagesController < ApplicationController
   end
 
   def language_params
-    params.require(:language).permit(:title, :description, :link, :icon)
+    params.require(:language).permit(:title, :description, :link)
   end
 
 
