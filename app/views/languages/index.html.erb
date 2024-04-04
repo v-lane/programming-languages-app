@@ -1,0 +1,37 @@
+
+<section class="language-index container mt-5">
+  <header>
+    <h1>Programming Languages</h1>
+  </header>
+
+
+  <div class="mt-3">
+    <%= link_to 'New', new_language_path, class: "btn btn-primary" %>
+  </div>
+
+  <table class="table">
+    <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Description</th>
+          <th scope="col">View</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @languages.each do |language| %>
+          <tr>
+            <td><%= language.title %></td>
+            <td><%= language.description %></td>
+            <td><%= link_to 'View', language, class: "btn btn-success btn-sm" %></td>
+            <td><%= link_to 'Edit', edit_language_path(language), class: "btn btn-primary btn-sm" %></td>
+            <td><%= link_to 'Delete', language, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+
+            </td>
+          </tr>
+        <% end %>
+    </tbody>
+  </table>
+</section>
+
